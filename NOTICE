@@ -1,0 +1,38 @@
+Liquid Glass Design System
+==========================
+
+This project is licensed under the MIT License (see LICENSE).
+
+Third-party material included or referenced
+-------------------------------------------
+
+1. Lucide icons — ISC License
+   Vendored at: assets/icons/lucide/
+   Licence text: assets/icons/lucide/LICENSE
+   Source: https://github.com/lucide-icons/lucide
+   Used as the icon set throughout this system.
+
+2. Design token values — MIT License
+   Source: https://github.com/rohitg00/awesome-claude-design
+   Specifically design-md/glass/apple.md, which supplied the surface and ink
+   values, the system tint palette, the three vibrancy densities, the type and
+   spacing scales, and the component radii that tokens/ encodes.
+
+Trademarks and material deliberately NOT included
+--------------------------------------------------
+
+This project is not affiliated with, endorsed by, or sponsored by Apple Inc.
+
+- "Apple", "SF Pro", "SF Symbols", "iOS" and "macOS" are trademarks of
+  Apple Inc. They appear in this repository only as descriptive references.
+- No Apple font binaries are distributed here. SF Pro Text, SF Pro Display and
+  SF Mono are Apple-licensed. tokens/fonts.css resolves to the host system
+  face instead; see the commented @font-face block there if you hold a licence.
+- No SF Symbols glyphs are distributed here. Lucide is used as an open
+  substitute; this substitution is flagged in readme.md §5 and in
+  components/core/Icon.prompt.md.
+- No Apple logos, app icons, product imagery or screen recreations are
+  included. Every backdrop in this system is a pure-CSS gradient generated for
+  this project.
+- The UI kits under ui_kits/ are original surfaces demonstrating the visual
+  language. They do not reproduce any real company's shipped product.

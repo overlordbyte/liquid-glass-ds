@@ -1,0 +1,81 @@
+<!-- @dsCard group="Components" viewport="700x400" name="Navigation" subtitle="Nav bar, tab bar, sidebar, grouped list, toolbar" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7/babel.min.js"></script>
+<link rel="stylesheet" href="../../styles.css" />
+<script src="../../_ds_bundle.js"></script>
+<script src="../../preview/bundle.js"></script>
+<style>
+  html, body { margin: 0; background: transparent; }
+  #root { padding: 16px 20px; }
+  .stage { border-radius: var(--radius-panel); }
+  .cap { font-size: var(--size-11); font-weight: 500; letter-spacing: .06em;
+          text-transform: uppercase; color: var(--text-tertiary); }
+  
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel" data-presets="react">
+const { NavBar, TabBar, Sidebar, ListGroup, ListRow, Toolbar, IconButton, Icon, Badge, SearchField, Switch, Avatar } = window.LiquidGlass;
+
+function Demo() {
+  const [tab, setTab] = React.useState("home");
+  const [view, setView] = React.useState("all");
+  const [q, setQ] = React.useState("");
+  return (
+    <div style={{ display: "grid", gridTemplateColumns: "250px 1fr 250px", gap: 16, height: 368 }}>
+      <div className="lg-wallpaper stage" style={{ overflow: "hidden", display: "flex", flexDirection: "column" }}>
+        <NavBar title="Library" largeTitle
+          trailing={<IconButton label="Add" variant="plain"><Icon name="plus" /></IconButton>}
+          below={<SearchField glass value={q} onChange={setQ} />} />
+        <div style={{ flex: 1 }} />
+        <TabBar value={tab} onChange={setTab} items={[
+          { value: "home", label: "Home", icon: <Icon name="house" size={23} /> },
+          { value: "search", label: "Search", icon: <Icon name="search" size={23} /> },
+          { value: "me", label: "You", icon: <Icon name="user" size={23} /> },
+        ]} />
+      </div>
+
+      <div style={{ overflow: "auto" }}>
+        <ListGroup title="Notifications" footer="Alerts still appear on the lock screen." inset={16}>
+          <ListRow title="Allow notifications" trailing={<Switch checked onChange={() => {}} label="Allow" />} />
+          <ListRow title="Sounds" value="Chime" chevron />
+          <ListRow title="Badges" trailing={<Badge tone="tint">3</Badge>} />
+        </ListGroup>
+        <div style={{ height: 14 }} />
+        <ListGroup inset={56}>
+          <ListRow leading={<Avatar name="Ali Karimov" size={32} />} title="Ali Karimov" subtitle="Online" chevron />
+          <ListRow leading={<Avatar name="Dilnoza K" size={32} />} title="Dilnoza K" subtitle="Last seen 2h" chevron />
+        </ListGroup>
+      </div>
+
+      <div className="lg-wallpaper--light stage" style={{ position: "relative", overflow: "hidden", display: "flex" }} data-density="dense">
+        <Sidebar value={view} onChange={setView}
+          header={<div style={{ fontSize: "var(--size-13)", fontWeight: 600 }}>Files</div>}
+          sections={[{ title: "Library", items: [
+            { value: "all", label: "All Files", icon: <Icon name="folder" size={15} /> },
+            { value: "recent", label: "Recents", icon: <Icon name="clock" size={15} /> },
+            { value: "shared", label: "Shared", icon: <Icon name="users" size={15} />, badge: <Badge size="sm" tone="tint">2</Badge> },
+          ]}, { title: "Tags", items: [
+            { value: "red", label: "Important", icon: <Icon name="circle" size={15} /> },
+          ]}]} />
+        <Toolbar position="bottom">
+          <IconButton label="Back" size="sm"><Icon name="chevron-left" size={17} /></IconButton>
+          <IconButton label="Share" size="sm"><Icon name="share" size={17} /></IconButton>
+          <IconButton label="More" size="sm"><Icon name="ellipsis" size={17} /></IconButton>
+        </Toolbar>
+      </div>
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<Demo />);
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!-- @dsCard group="Glass" viewport="700x183" name="Material Densities" subtitle="Thin .60 · regular .78 · thick .92 white alpha over the blurred backdrop" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  html,body{margin:0;background:transparent}
+  body{padding:14px 18px;font-family:var(--font-text)}
+  .g{display:flex;gap:12px;flex-wrap:wrap;align-items:flex-start}
+  .tk{font-family:var(--font-mono);font-size:10px;color:var(--text-tertiary)}
+  .lab{font-size:11px;font-weight:600;margin-top:7px;color:var(--text-primary)}
+  .stage{border-radius:18px;overflow:hidden;position:relative}
+  .pane{position:relative;isolation:isolate;box-shadow:var(--specular);border-radius:18px;
+        display:grid;place-items:center;height:92px;font-size:13px;font-weight:600;color:var(--text-primary)}
+  .pane::before{content:"";position:absolute;inset:0;border-radius:inherit;background:var(--lens-gradient);z-index:-1}
+</style>
+</head>
+<body>
+<div class="lg-wallpaper stage" style="padding:16px">
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px">
+    <div><div class="pane" style="background:var(--material-ultrathin);backdrop-filter:blur(8px) saturate(180%);-webkit-backdrop-filter:blur(8px) saturate(180%);color:#fff">Ultrathin</div><div class="lab" style="color:#fff">0.28 · blur 8</div></div>
+    <div><div class="pane" style="background:var(--material-thin);backdrop-filter:var(--backdrop-thin);-webkit-backdrop-filter:var(--backdrop-thin)">Thin</div><div class="lab" style="color:#fff">0.60 · blur 20</div></div>
+    <div><div class="pane" style="background:var(--material-regular);backdrop-filter:var(--backdrop-regular);-webkit-backdrop-filter:var(--backdrop-regular)">Regular</div><div class="lab" style="color:#fff">0.78 · blur 30</div></div>
+    <div><div class="pane" style="background:var(--material-thick);backdrop-filter:var(--backdrop-thick);-webkit-backdrop-filter:var(--backdrop-thick)">Thick</div><div class="lab" style="color:#fff">0.92 · blur 40</div></div>
+  </div>
+</div>
+</body>
+</html>

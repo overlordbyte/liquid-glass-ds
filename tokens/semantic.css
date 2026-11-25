@@ -1,0 +1,43 @@
+/* ==========================================================================
+   SEMANTIC ALIASES — what product code should actually reference.
+   Swap the base layer, these keep working.
+   ========================================================================== */
+
+:root {
+  /* ---- Text ---- */
+  --text-primary: var(--fg-1);
+  --text-secondary: var(--fg-2);
+  --text-tertiary: var(--fg-3);
+  --text-disabled: var(--fg-4);
+  --text-on-tint: var(--tint-contrast);
+  --text-link: var(--tint);
+  --text-on-media: #ffffff;
+
+  /* ---- Surfaces ---- */
+  --surface-page: var(--bg-base);
+  --surface-card: var(--bg-elevated);
+  --surface-grouped: var(--bg-grouped);
+  --surface-row: var(--bg-grouped-2);
+  --surface-chrome: var(--material-thin);
+  --surface-sheet: var(--material-regular);
+  --surface-panel: var(--material-thick);
+  --surface-chip: var(--material-ultrathin);
+
+  /* ---- Borders ---- */
+  --border-hairline: 1px solid var(--separator);
+  --border-glass: 0.5px solid var(--glass-rim);
+  --border-control: 1px solid var(--tint);
+
+  /* ---- Status ---- */
+  --status-success: var(--tint-green);
+  --status-warning: var(--tint-orange);
+  --status-danger: var(--tint-red);
+  --status-info: var(--tint-blue);
+
+  /* ---- Controls ---- */
+  --control-fill-primary: var(--tint);
+  --control-fill-secondary: var(--fill-3);
+  --control-fill-input: var(--bg-grouped);
+  --control-track-off: var(--fill-1);
+  --control-knob: #ffffff;
+}

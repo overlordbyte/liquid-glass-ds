@@ -1,0 +1,43 @@
+<!-- @dsCard group="Marketing Site" viewport="1280x760" name="Marketing Site Kit" subtitle="Floating glass nav, hero, feature grid, pricing and footer" -->
+<!-- @startingPoint section="Screens" subtitle="Marketing page: hero, features, pricing" viewport="1280x900" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Liquid Glass — Marketing Site Kit</title>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7/babel.min.js"></script>
+<link rel="stylesheet" href="../../styles.css" />
+<script src="../../_ds_bundle.js"></script>
+<script src="../../preview/bundle.js"></script>
+<script src="../../preview/kit-web-marketing.js"></script>
+<style>
+  html, body { margin: 0; }
+  body { min-height: 100vh; }
+</style>
+</head>
+<body class="lg-wallpaper">
+<div id="root"></div>
+<script type="text/babel" data-presets="react">
+const { SiteHeader, Hero, FeatureSection, PricingSection, SiteFooter } = window.LiquidGlassKits["web-marketing"];
+
+function Page() {
+  const [active, setActive] = React.useState("Product");
+  return (
+    <>
+      <SiteHeader active={active} onNavigate={setActive} />
+      <Hero />
+      <FeatureSection />
+      <PricingSection />
+      <SiteFooter />
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<Page />);
+</script>
+</body>
+</html>

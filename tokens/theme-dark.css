@@ -1,0 +1,47 @@
+/* ==========================================================================
+   DARK THEME — single-selector scope so the compiler indexes it as a theme.
+   Apply with <html data-theme="dark">. See theme-auto.css to follow the OS.
+   ========================================================================== */
+
+:root[data-theme="dark"] {
+  --bg-base: #000000;
+  --bg-elevated: #1c1c1e;
+  --bg-grouped: #2c2c2e;
+  --bg-grouped-2: #1c1c1e;
+
+  --fg-1: #f5f5f7;
+  --fg-2: rgba(235, 235, 245, 0.72);
+  --fg-3: rgba(235, 235, 245, 0.50);
+  --fg-4: rgba(235, 235, 245, 0.28);
+
+  --separator: rgba(84, 84, 88, 0.65);
+  --separator-opaque: #38383a;
+
+  /* Dark-mode tints are brightened one step so they survive on black */
+  --tint-blue: #0a84ff;
+  --tint-green: #30d158;
+  --tint-red: #ff453a;
+  --tint-orange: #ff9f0a;
+  --tint-purple: #bf5af2;
+  --tint-pink: #ff375f;
+  --tint-yellow: #ffd60a;
+  --tint-teal: #40c8e0;
+  --tint-indigo: #5e5ce6;
+  --tint: var(--tint-blue);
+  --tint-contrast: #ffffff;
+
+  --fill-1: rgba(120, 120, 128, 0.36);
+  --fill-2: rgba(120, 120, 128, 0.32);
+  --fill-3: rgba(120, 120, 128, 0.24);
+  --fill-4: rgba(120, 120, 128, 0.18);
+
+  /* Glass in dark mode is a dark body with a *brighter* rim — the highlight
+     is what still reads as glass once the fill goes black. */
+  --glass-rgb: 28, 28, 30;
+  --glass-thin-alpha: 0.55;
+  --glass-regular-alpha: 0.72;
+  --glass-thick-alpha: 0.88;
+  --glass-highlight: rgba(255, 255, 255, 0.30);
+  --glass-rim: rgba(255, 255, 255, 0.14);
+  --glass-shade: rgba(0, 0, 0, 0.35);
+}

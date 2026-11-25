@@ -1,0 +1,12 @@
+{
+  "name": "liquid-glass-design-system",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Liquid Glass — tokens, components and UI kits for the frosted/translucent visual language.",
+  "scripts": {
+    "preview": "node tools/build-preview.mjs && python3 -m http.server 8000"
+  },
+  "devDependencies": {
+    "esbuild": "^0.24.0"
+  }
+}

@@ -1,0 +1,33 @@
+<!-- @dsCard group="Glass" viewport="700x210" name="Shadow Rule" subtitle="Never drop-shadow a material. Ambient occlusion goes on the wrapper" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  html,body{margin:0;background:transparent}
+  body{padding:14px 18px;font-family:var(--font-text)}
+  .g{display:flex;gap:12px;flex-wrap:wrap;align-items:flex-start}
+  .tk{font-family:var(--font-mono);font-size:10px;color:var(--text-tertiary)}
+  .lab{font-size:11px;font-weight:600;margin-top:7px;color:var(--text-primary)}
+  .stage{border-radius:18px;overflow:hidden;position:relative}
+  .pane{position:relative;isolation:isolate;box-shadow:var(--specular);border-radius:18px;
+        display:grid;place-items:center;height:92px;font-size:13px;font-weight:600;color:var(--text-primary)}
+  .pane::before{content:"";position:absolute;inset:0;border-radius:inherit;background:var(--lens-gradient);z-index:-1}
+</style>
+</head>
+<body>
+<div class="lg-wallpaper--warm stage" style="padding:18px">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
+    <div>
+      <div class="pane" style="background:var(--material-regular);backdrop-filter:var(--backdrop-regular);-webkit-backdrop-filter:var(--backdrop-regular);box-shadow:var(--specular),0 14px 36px rgba(0,0,0,.45)">Wrong</div>
+      <div class="lab" style="color:#fff">shadow on the glass — it stops reading as translucent</div>
+    </div>
+    <div style="box-shadow:var(--shadow-ambient-glass);border-radius:18px">
+      <div class="pane" style="background:var(--material-regular);backdrop-filter:var(--backdrop-regular);-webkit-backdrop-filter:var(--backdrop-regular);box-shadow:var(--specular)">Right</div>
+    </div>
+  </div>
+  <div class="lab" style="color:#fff;margin-left:calc(50% + 9px)">occlusion on the wrapper, specular on the panel</div>
+</div>
+</body>
+</html>

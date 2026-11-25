@@ -1,0 +1,77 @@
+<!-- @dsCard group="Components" viewport="700x370" name="Core" subtitle="Buttons, icon buttons, badges, chips, avatars" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7/babel.min.js"></script>
+<link rel="stylesheet" href="../../styles.css" />
+<script src="../../_ds_bundle.js"></script>
+<script src="../../preview/bundle.js"></script>
+<style>
+  html, body { margin: 0; background: transparent; }
+  #root { padding: 14px 20px; }
+  .stage { border-radius: var(--radius-panel); }
+  .cap { font-size: var(--size-11); font-weight: 500; letter-spacing: .06em;
+          text-transform: uppercase; color: var(--text-tertiary); }
+  
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel" data-presets="react">
+const { Button, IconButton, Badge, Chip, Avatar, Icon, Card, Divider } = window.LiquidGlass;
+
+function Row({ label, children }) {
+  return (
+    <div style={{ marginBottom: 11 }}>
+      <div className="cap" style={{ marginBottom: 6 }}>{label}</div>
+      <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>{children}</div>
+    </div>
+  );
+}
+
+function Demo() {
+  return (
+    <div>
+      <Row label="Button variants">
+        <Button variant="primary">Continue</Button>
+        <Button variant="bordered">Learn more</Button>
+        <Button variant="plain">Cancel</Button>
+        <Button variant="tinted">Tinted</Button>
+        <Button variant="destructive">Delete</Button>
+      </Row>
+      <Row label="Sizes · shapes · slots">
+        <Button size="sm">Small</Button>
+        <Button size="md">Medium</Button>
+        <Button size="lg">Large 44px</Button>
+        <Button shape="capsule" leading={<Icon name="plus" size={17} />}>Capsule</Button>
+        <Button variant="primary" disabled>Disabled</Button>
+        <Button variant="primary" loading>Saving</Button>
+      </Row>
+      <Row label="Icon buttons">
+        <IconButton label="Search" variant="plain"><Icon name="search" /></IconButton>
+        <IconButton label="Add" variant="filled"><Icon name="plus" color="#fff" /></IconButton>
+        <IconButton label="More" variant="subtle"><Icon name="ellipsis" /></IconButton>
+        <IconButton label="Heart" variant="subtle" size="lg"><Icon name="heart" size={22} /></IconButton>
+      </Row>
+      <Row label="Badges · chips · avatars">
+        <Badge>8</Badge>
+        <Badge tone="tint">New</Badge>
+        <Badge tone="success">Live</Badge>
+        <Badge tone="danger">12</Badge>
+        <Chip selected>All</Chip>
+        <Chip leading={<Icon name="star" size={14} />}>Favourites</Chip>
+        <Avatar name="Abduraxmon Yusupov" size={32} />
+        <Avatar name="Dilnoza K" size={32} ring />
+      </Row>
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<Demo />);
+</script>
+</body>
+</html>

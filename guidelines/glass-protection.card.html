@@ -1,0 +1,38 @@
+<!-- @dsCard group="Glass" viewport="700x186" name="Protection" subtitle="Gradient for static text, capsule for anything interactive" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  html,body{margin:0;background:transparent}
+  body{padding:14px 18px;font-family:var(--font-text)}
+  .g{display:flex;gap:12px;flex-wrap:wrap;align-items:flex-start}
+  .tk{font-family:var(--font-mono);font-size:10px;color:var(--text-tertiary)}
+  .lab{font-size:11px;font-weight:600;margin-top:7px;color:var(--text-primary)}
+  .stage{border-radius:18px;overflow:hidden;position:relative}
+  .pane{position:relative;isolation:isolate;box-shadow:var(--specular);border-radius:18px;
+        display:grid;place-items:center;height:92px;font-size:13px;font-weight:600;color:var(--text-primary)}
+  .pane::before{content:"";position:absolute;inset:0;border-radius:inherit;background:var(--lens-gradient);z-index:-1}
+</style>
+</head>
+<body>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+  <div class="lg-wallpaper--cool stage" style="height:150px;position:relative">
+    <div style="position:absolute;inset:auto 0 0 0;height:96px;background:var(--protection-bottom)"></div>
+    <div style="position:absolute;left:14px;bottom:12px;color:#fff">
+      <div style="font-family:var(--font-display);font-size:22px;font-weight:600;letter-spacing:-.015em">Chorvoq Lake</div>
+      <div style="font-size:13px;opacity:.85">Tashkent Region</div>
+    </div>
+    <div class="tk" style="position:absolute;top:10px;left:14px;color:rgba(255,255,255,.8)">--protection-bottom · static text</div>
+  </div>
+  <div class="lg-wallpaper--cool stage" style="height:150px;position:relative;display:grid;place-items:center;gap:8">
+    <div style="display:flex;gap:8px">
+      <span style="background:var(--material-ultrathin);backdrop-filter:blur(8px) saturate(180%);-webkit-backdrop-filter:blur(8px) saturate(180%);box-shadow:var(--specular-rim);color:#fff;font-size:13px;font-weight:500;padding:7px 14px;border-radius:999px">Directions</span>
+      <span style="background:var(--material-ultrathin);backdrop-filter:blur(8px) saturate(180%);-webkit-backdrop-filter:blur(8px) saturate(180%);box-shadow:var(--specular-rim);color:#fff;font-size:13px;font-weight:500;padding:7px 14px;border-radius:999px">Save</span>
+    </div>
+    <div class="tk" style="position:absolute;top:10px;left:14px;color:rgba(255,255,255,.8)">ultrathin capsule · interactive</div>
+  </div>
+</div>
+</body>
+</html>

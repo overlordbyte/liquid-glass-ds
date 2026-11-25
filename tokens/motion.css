@@ -1,0 +1,47 @@
+/* ==========================================================================
+   MOTION — short, spring-weighted, never bouncy for its own sake.
+   Everything either slides along one axis or scales from its own origin.
+   Nothing fades in from nowhere; nothing eases linearly.
+   ========================================================================== */
+
+:root {
+  /* ---- Durations ---- */
+  --dur-instant: 80ms;    /* press feedback */
+  --dur-fast: 160ms;      /* hover, tint change, chip toggle */
+  --dur-base: 240ms;      /* most transitions */
+  --dur-slow: 360ms;      /* sheet present, nav push */
+  --dur-slower: 500ms;    /* large-title collapse, hero reveal */
+
+  /* ---- Easings ---- */
+  --ease-standard: cubic-bezier(0.32, 0.72, 0, 1);   /* the workhorse */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);         /* entering */
+  --ease-in: cubic-bezier(0.7, 0, 0.84, 0);          /* leaving */
+  --ease-spring: cubic-bezier(0.34, 1.26, 0.64, 1);  /* a 4% overshoot, no more */
+
+  /* ---- Composed transitions ---- */
+  --t-press: transform var(--dur-instant) var(--ease-out),
+             opacity var(--dur-instant) var(--ease-out);
+  --t-hover: background-color var(--dur-fast) var(--ease-standard),
+             border-color var(--dur-fast) var(--ease-standard),
+             box-shadow var(--dur-fast) var(--ease-standard);
+  --t-sheet: transform var(--dur-slow) var(--ease-standard),
+             opacity var(--dur-base) var(--ease-standard);
+
+  /* ---- Interaction deltas ---- */
+  --press-scale: 0.96;        /* controls shrink on press, never darken only */
+  --press-scale-large: 0.985; /* cards and sheets shrink less */
+  --hover-lift: -1px;
+  --disabled-opacity: 0.32;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-instant: 1ms;
+    --dur-fast: 1ms;
+    --dur-base: 1ms;
+    --dur-slow: 1ms;
+    --dur-slower: 1ms;
+    --press-scale: 1;
+    --press-scale-large: 1;
+  }
+}

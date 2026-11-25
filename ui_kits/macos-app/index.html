@@ -1,0 +1,89 @@
+<!-- @dsCard group="macOS App" viewport="1120x680" name="macOS App Kit" subtitle="Window chrome, 240px sidebar, grid/list browser and a glass inspector" -->
+<!-- @startingPoint section="Screens" subtitle="Desktop window: sidebar, browser, inspector" viewport="1120x700" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Liquid Glass — macOS App Kit</title>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7/babel.min.js"></script>
+<link rel="stylesheet" href="../../styles.css" />
+<script src="../../_ds_bundle.js"></script>
+<script src="../../preview/bundle.js"></script>
+<script src="../../preview/kit-macos-app.js"></script>
+<style>
+  html, body { margin: 0; }
+  body { min-height: 100vh; }
+  #root { padding: 28px; }
+</style>
+</head>
+<body class="lg-wallpaper">
+<div id="root"></div>
+<script type="text/babel" data-presets="react">
+const { Sidebar, Icon, IconButton, SearchField, Badge, Toast } = window.LiquidGlass;
+const { WindowChrome, TrafficLights, FileBrowser, Inspector } = window.LiquidGlassKits["macos-app"];
+
+function App() {
+  const [view, setView] = React.useState("recents");
+  const [file, setFile] = React.useState(null);
+  const [layout, setLayout] = React.useState("Grid");
+  const [q, setQ] = React.useState("");
+  const [toast, setToast] = React.useState(false);
+
+  const sidebar = (
+    <div style={{ display: "flex", flexDirection: "column", width: "var(--sidebar-width)", flex: "0 0 auto" }}>
+      <div style={{ background: "var(--surface-sheet)", WebkitBackdropFilter: "var(--backdrop-regular)", backdropFilter: "var(--backdrop-regular)" }}>
+        <TrafficLights />
+      </div>
+      <Sidebar
+        style={{ flex: 1, minHeight: 0, width: "100%" }}
+        value={view}
+        onChange={setView}
+        header={<SearchField value={q} onChange={setQ} onClear={() => setQ("")} placeholder="Search" />}
+        sections={[
+          { title: "Library", items: [
+            { value: "recents", label: "Recents", icon: <Icon name="clock" size={15} /> },
+            { value: "all", label: "All Files", icon: <Icon name="folder" size={15} /> },
+            { value: "shared", label: "Shared", icon: <Icon name="users" size={15} />, badge: <Badge size="sm" tone="tint">2</Badge> },
+            { value: "trash", label: "Trash", icon: <Icon name="trash-2" size={15} /> },
+          ]},
+          { title: "Tags", items: [
+            { value: "work", label: "Work", icon: <Icon name="circle" size={15} /> },
+            { value: "personal", label: "Personal", icon: <Icon name="circle" size={15} /> },
+          ]},
+        ]}
+        footer={<div style={{ fontSize: "var(--size-11)", color: "var(--text-tertiary)" }}>412 GB of 1 TB used</div>}
+      />
+    </div>
+  );
+
+  return (
+    <div style={{ position: "relative", maxWidth: 1060, margin: "0 auto" }}>
+      <WindowChrome
+        style={{ height: 600 }}
+        title={{ recents: "Recents", all: "All Files", shared: "Shared", trash: "Trash", work: "Work", personal: "Personal" }[view]}
+        subtitle={q ? `Filtering “${q}”` : "Projects / 2026"}
+        sidebar={sidebar}
+        inspector={<Inspector file={file} onClose={() => setFile(null)} />}
+        toolbar={<>
+          <IconButton label="New folder" size="sm" variant="subtle" onClick={() => { setToast(true); setTimeout(() => setToast(false), 1700); }}>
+            <Icon name="folder-plus" size={16} />
+          </IconButton>
+          <IconButton label="Share" size="sm" variant="subtle"><Icon name="share" size={16} /></IconButton>
+          <IconButton label="Tags" size="sm" variant="subtle"><Icon name="tag" size={16} /></IconButton>
+        </>}
+      >
+        <FileBrowser selected={file} onSelect={setFile} layout={layout} onLayout={setLayout} />
+      </WindowChrome>
+      <Toast open={toast} message="Folder created" tone="success"
+        icon={<Icon name="check" size={15} color="var(--status-success)" />} />
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+</body>
+</html>

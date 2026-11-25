@@ -1,0 +1,23 @@
+<!-- @dsCard group="Brand" viewport="700x187" name="One Tint Per Surface" subtitle="Rebind --tint on a container; never mix two accents in one view" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  html,body{margin:0;background:transparent}
+  body{padding:14px 18px;font-family:var(--font-text)}
+  .g{display:flex;gap:12px;flex-wrap:wrap;align-items:flex-start}
+  .tk{font-family:var(--font-mono);font-size:10px;color:var(--text-tertiary)}
+  .lab{font-size:11px;font-weight:600;margin-top:7px;color:var(--text-primary)}
+  .stage{border-radius:18px;overflow:hidden;position:relative}
+  .pane{position:relative;isolation:isolate;box-shadow:var(--specular);border-radius:18px;
+        display:grid;place-items:center;height:92px;font-size:13px;font-weight:600;color:var(--text-primary)}
+  .pane::before{content:"";position:absolute;inset:0;border-radius:inherit;background:var(--lens-gradient);z-index:-1}
+</style>
+</head>
+<body>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+<div class="lg-tint-blue" style="background:var(--bg-grouped);border-radius:14px;padding:12px"><div style="display:flex;align-items:center;gap:8px;margin-bottom:9px"><span style="width:22px;height:22px;border-radius:7px;background:var(--tint)"></span><span style="font-size:13px;font-weight:600">Blue surface</span></div><div style="display:grid;place-items:center;height:34px;border-radius:12px;background:var(--tint);color:#fff;font-size:13px;font-weight:600">Primary</div><div style="display:grid;place-items:center;height:34px;margin-top:6px;border-radius:12px;box-shadow:inset 0 0 0 1px var(--tint);color:var(--tint);font-size:13px;font-weight:600">Bordered</div><div class="tk" style="margin-top:7px">--tint: var(--tint-blue)</div></div><div class="lg-tint-green" style="background:var(--bg-grouped);border-radius:14px;padding:12px"><div style="display:flex;align-items:center;gap:8px;margin-bottom:9px"><span style="width:22px;height:22px;border-radius:7px;background:var(--tint)"></span><span style="font-size:13px;font-weight:600">Green surface</span></div><div style="display:grid;place-items:center;height:34px;border-radius:12px;background:var(--tint);color:#fff;font-size:13px;font-weight:600">Primary</div><div style="display:grid;place-items:center;height:34px;margin-top:6px;border-radius:12px;box-shadow:inset 0 0 0 1px var(--tint);color:var(--tint);font-size:13px;font-weight:600">Bordered</div><div class="tk" style="margin-top:7px">--tint: var(--tint-green)</div></div><div class="lg-tint-purple" style="background:var(--bg-grouped);border-radius:14px;padding:12px"><div style="display:flex;align-items:center;gap:8px;margin-bottom:9px"><span style="width:22px;height:22px;border-radius:7px;background:var(--tint)"></span><span style="font-size:13px;font-weight:600">Purple surface</span></div><div style="display:grid;place-items:center;height:34px;border-radius:12px;background:var(--tint);color:#fff;font-size:13px;font-weight:600">Primary</div><div style="display:grid;place-items:center;height:34px;margin-top:6px;border-radius:12px;box-shadow:inset 0 0 0 1px var(--tint);color:var(--tint);font-size:13px;font-weight:600">Bordered</div><div class="tk" style="margin-top:7px">--tint: var(--tint-purple)</div></div></div>
+</body>
+</html>

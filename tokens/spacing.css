@@ -1,0 +1,53 @@
+/* ==========================================================================
+   SPACING & SIZING — 8pt base, with 4 as the half step.
+   Scale: 4 8 12 16 20 24 32 44 56 80
+   ========================================================================== */
+
+:root {
+  --space-0: 0px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 32px;
+  --space-8: 44px;
+  --space-9: 56px;
+  --space-10: 80px;
+
+  /* ---- Semantic gaps ---- */
+  --gap-inline: var(--space-2);    /* icon ↔ label */
+  --gap-stack: var(--space-3);     /* rows in a list */
+  --gap-section: var(--space-7);   /* blocks in a screen */
+  --gap-chapter: var(--space-10);  /* marketing page sections */
+
+  /* ---- Edge insets ---- */
+  --inset-screen: var(--space-4);   /* phone gutter */
+  --inset-window: var(--space-5);   /* desktop window gutter */
+  --inset-page: var(--space-6);     /* marketing page gutter */
+
+  /* ---- Hit targets ---- */
+  --target-touch: 44px;
+  --target-dense: 28px;
+
+  /* ---- Control heights ---- */
+  --control-sm: 28px;
+  --control-md: 36px;
+  --control-lg: 44px;
+  --control-xl: 52px;
+
+  /* ---- Layout constants ---- */
+  --sidebar-width: 240px;
+  --navbar-height: 52px;
+  --tabbar-height: 56px;
+  --toolbar-height: 44px;
+  --content-max: 1120px;
+  --prose-max: 68ch;
+
+  /* ---- Safe areas: always honour them, chrome floats over content ---- */
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+}

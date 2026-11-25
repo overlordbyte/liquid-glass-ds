@@ -1,0 +1,125 @@
+<!-- @dsCard group="iOS App" viewport="1060x620" name="iOS App Kit" subtitle="Sign-in, library, now playing and settings — click through all four" -->
+<!-- @startingPoint section="Screens" subtitle="iOS app: library, player, settings" viewport="390x844" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Liquid Glass — iOS App Kit</title>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7/babel.min.js"></script>
+<link rel="stylesheet" href="../../styles.css" />
+<script src="../../_ds_bundle.js"></script>
+<script src="../../preview/bundle.js"></script>
+<script src="../../preview/kit-ios-app.js"></script>
+<style>
+  html, body { margin: 0; background: transparent; }
+  #root { padding: 20px; display: flex; gap: 22px; justify-content: center; align-items: flex-start; }
+  .phone {
+    width: 320px; height: 560px; position: relative; overflow: hidden;
+    border-radius: 44px; background: #000;
+    box-shadow: 0 24px 60px rgba(0,0,0,.28), 0 0 0 9px #16181d, 0 0 0 10.5px rgba(255,255,255,.08);
+    --safe-top: 18px; --safe-bottom: 14px;
+    isolation: isolate;
+  }
+  .screen { position: absolute; inset: 0; overflow: hidden; display: flex; flex-direction: column; }
+  .notch { position: absolute; top: 9px; left: 50%; transform: translateX(-50%);
+           width: 96px; height: 24px; border-radius: 999px; background: #000; z-index: 500; }
+  .capt { text-align: center; font: 500 11px/1.4 var(--font-text); letter-spacing: .06em;
+          text-transform: uppercase; color: var(--text-tertiary); margin-top: 12px; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel" data-presets="react">
+const { TabBar, Icon, Sheet, ListGroup, ListRow, Toast } = window.LiquidGlass;
+const { OnboardingScreen, LibraryScreen, NowPlayingScreen, SettingsScreen } = window.LiquidGlassKits["ios-app"];
+
+function Phone({ children, label }) {
+  return (
+    <div>
+      <div className="phone">
+        <div className="notch" />
+        <div className="screen">{children}</div>
+      </div>
+      <div className="capt">{label}</div>
+    </div>
+  );
+}
+
+function App() {
+  const [signedIn, setSignedIn] = React.useState(false);
+  const [tab, setTab] = React.useState("library");
+  const [album, setAlbum] = React.useState(null);
+  const [scrolled, setScrolled] = React.useState(false);
+  const [query, setQuery] = React.useState("");
+  const [filter, setFilter] = React.useState("All");
+  const [share, setShare] = React.useState(false);
+  const [toast, setToast] = React.useState(false);
+
+  if (!signedIn) {
+    return <OnboardingScreen onSignIn={() => setSignedIn(true)} />;
+  }
+
+  return (
+    <>
+      <div className={tab === "library" ? "lg-wallpaper" : ""} style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column" }}>
+        <div style={{ flex: 1, minHeight: 0, position: "relative", display: "flex", flexDirection: "column" }}>
+          {tab === "library" && (
+            <LibraryScreen onOpen={setAlbum} scrolled={scrolled} onScroll={setScrolled}
+              query={query} onQuery={setQuery} filter={filter} onFilter={setFilter} />
+          )}
+          {tab === "settings" && <SettingsScreen scrolled={scrolled} onScroll={setScrolled} />}
+          {tab === "search" && (
+            <div style={{ flex: 1, display: "grid", placeItems: "center", color: "rgba(255,255,255,.75)", textAlign: "center", padding: 24 }}>
+              <div>
+                <Icon name="search" size={30} color="rgba(255,255,255,.75)" />
+                <div style={{ marginTop: 10, fontSize: "var(--size-15)" }}>
+                  Search is intentionally left blank — no source design was provided for this surface.
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+        <TabBar value={tab} onChange={(v) => { setTab(v); setScrolled(false); }} items={[
+          { value: "library", label: "Library", icon: <Icon name="library" size={23} /> },
+          { value: "search", label: "Search", icon: <Icon name="search" size={23} /> },
+          { value: "settings", label: "Settings", icon: <Icon name="settings" size={23} /> },
+        ]} />
+      </div>
+
+      {album && (
+        <NowPlayingScreen album={album} onClose={() => setAlbum(null)} onShare={() => setShare(true)} />
+      )}
+
+      <Sheet open={share} onClose={() => setShare(false)} detent="content" title="Share">
+        <ListGroup inset={52}>
+          <ListRow leading={<Icon name="link" />} title="Copy link" onClick={() => { setShare(false); setToast(true); setTimeout(() => setToast(false), 1800); }} />
+          <ListRow leading={<Icon name="message-circle" />} title="Messages" />
+          <ListRow leading={<Icon name="mail" />} title="Mail" />
+        </ListGroup>
+        <div style={{ height: 12 }} />
+      </Sheet>
+
+      <Toast open={toast} message="Link copied" tone="success"
+        icon={<Icon name="check" size={15} color="var(--status-success)" />} />
+    </>
+  );
+}
+
+function Stage() {
+  return (
+    <>
+      <Phone label="Sign in"><OnboardingScreen onSignIn={() => {}} /></Phone>
+      <Phone label="Interactive — tap an album"><App /></Phone>
+      <Phone label="Settings"><SettingsScreen scrolled={false} onScroll={() => {}} /></Phone>
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<Stage />);
+</script>
+</body>
+</html>

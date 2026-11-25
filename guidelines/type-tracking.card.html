@@ -1,0 +1,27 @@
+<!-- @dsCard group="Type" viewport="700x150" name="Tracking" subtitle="Letter-spacing tightens as size grows — the opposite of a web default" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  html,body{margin:0;background:transparent}
+  body{padding:14px 18px;font-family:var(--font-text)}
+  .g{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-start}
+  .sw{width:84px}
+  .sw i{display:block;height:46px;border-radius:10px;box-shadow:var(--specular-rim)}
+  .sw b{display:block;font-size:11px;font-weight:600;margin-top:6px;color:var(--text-primary)}
+  .sw s{display:block;font-size:10px;text-decoration:none;color:var(--text-tertiary);font-variant-numeric:tabular-nums}
+  .tk{font-family:var(--font-mono);font-size:10px;color:var(--text-tertiary)}
+  .row{display:flex;align-items:baseline;gap:14px;padding:3px 0}
+  .row .m{font-family:var(--font-mono);font-size:10px;color:var(--text-tertiary);min-width:112px;flex:0 0 auto}
+</style>
+</head>
+<body>
+<div style="display:grid;gap:2px">
+  <div class="row"><span class="m">-0.022em @ 34px</span><span style="font-family:var(--font-display);font-size:34px;font-weight:700;letter-spacing:-.022em">Tighter display</span></div>
+  <div class="row"><span class="m">-0.006em @ 17px</span><span style="font-size:17px;letter-spacing:-.006em">Body stays nearly neutral</span></div>
+  <div class="row"><span class="m">+0.06em @ 11px</span><span style="font-size:11px;letter-spacing:.06em;text-transform:uppercase">Micro opens up</span></div>
+</div>
+</body>
+</html>

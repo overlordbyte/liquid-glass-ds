@@ -1,0 +1,56 @@
+/* ==========================================================================
+   MATERIALS — the liquid-glass stack. This is the heart of the system.
+
+   A glass surface is FOUR things, in this order:
+     1. backdrop blur + saturation boost  (the lensing stand-in)
+     2. a low-alpha body fill             (the glass itself)
+     3. an inset top specular highlight   (what makes it read as glass, not film)
+     4. a perimeter rim + bottom inner shade (thickness)
+
+   Three densities, per design-md/glass/apple.md: thin .60 / regular .78 /
+   thick .92 white alpha. Thin for chrome that must stay see-through,
+   regular for sheets and sidebars, thick when text legibility wins.
+   ========================================================================== */
+
+:root {
+  /* ---- Blur + saturation ---- */
+  --blur-chrome: 20px;   /* nav bars, tab bars, toolbars */
+  --blur-sheet: 30px;    /* sheets, modals, popovers */
+  --blur-panel: 40px;    /* big floating widgets */
+  --blur-sm: 8px;        /* inline chips over imagery */
+  --saturate-glass: 180%;
+  --brightness-glass: 1.04;
+
+  --backdrop-thin: blur(var(--blur-chrome)) saturate(var(--saturate-glass));
+  --backdrop-regular: blur(var(--blur-sheet)) saturate(var(--saturate-glass));
+  --backdrop-thick: blur(var(--blur-panel)) saturate(var(--saturate-glass)) brightness(var(--brightness-glass));
+
+  /* ---- Body fills at the three densities ---- */
+  --material-thin: rgba(var(--glass-rgb), var(--glass-thin-alpha));
+  --material-regular: rgba(var(--glass-rgb), var(--glass-regular-alpha));
+  --material-thick: rgba(var(--glass-rgb), var(--glass-thick-alpha));
+
+  /* ---- Ultra-thin: chips floating directly on photography ---- */
+  --material-ultrathin: rgba(var(--glass-rgb), 0.28);
+
+  /* ---- The specular edge stack ----
+     Top edge bright, perimeter faint, bottom inner shade for thickness. */
+  --specular-top: inset 0 1.5px 0 var(--glass-highlight);
+  --specular-rim: inset 0 0 0 0.5px var(--glass-rim);
+  --specular-bottom: inset 0 -1px 2px var(--glass-shade);
+  --specular: var(--specular-top), var(--specular-rim), var(--specular-bottom);
+
+  /* ---- Lensing gradient: overlay on ::before to fake edge refraction ---- */
+  --lens-gradient: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.22) 0%,
+    rgba(255, 255, 255, 0.06) 22%,
+    rgba(255, 255, 255, 0) 55%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+
+  /* ---- Protection gradient: for text sitting on imagery with no capsule.
+     Use a capsule when the text is interactive, a gradient when it is not. */
+  --protection-top: linear-gradient(to bottom, rgba(0,0,0,0.45), rgba(0,0,0,0));
+  --protection-bottom: linear-gradient(to top, rgba(0,0,0,0.55), rgba(0,0,0,0));
+}

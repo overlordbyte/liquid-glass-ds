@@ -1,0 +1,57 @@
+/* ==========================================================================
+   FONTS — typeface declarations
+   --------------------------------------------------------------------------
+   SF Pro Text / SF Pro Display / SF Mono are Apple-licensed and may NOT be
+   redistributed, so NO font binaries are shipped with this design system and
+   there are intentionally no @font-face rules here.
+
+   Instead we resolve to the host system face. On Apple hardware `system-ui`
+   and `-apple-system` already *are* SF Pro, which is the highest-fidelity
+   result possible without shipping the files. On Windows/Android/Linux the
+   stack degrades to Segoe UI Variable / Roboto / system default.
+
+   If you own an SF Pro license, drop the .woff2 files in ../assets/fonts/
+   and uncomment the block at the bottom of this file.
+   ========================================================================== */
+
+:root {
+  /* Below 20px Apple uses the Text optical size, 20px and up the Display
+     optical size. We expose both so the type scale can switch. */
+  --font-text:
+    -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui,
+    "Segoe UI Variable Text", "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
+
+  --font-display:
+    -apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui,
+    "Segoe UI Variable Display", "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
+
+  --font-mono:
+    "SF Mono", ui-monospace, SFMono-Regular, Menlo, Monaco,
+    "Cascadia Mono", "Roboto Mono", monospace;
+
+  /* Keep optical sizing on — it is the whole point of the Text/Display split */
+  --font-optical-sizing: auto;
+}
+
+/* Opt-in: licensed SF Pro binaries
+@font-face {
+  font-family: "SF Pro Text";
+  src: url("../assets/fonts/SFProText.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: "SF Pro Display";
+  src: url("../assets/fonts/SFProDisplay.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: "SF Mono";
+  src: url("../assets/fonts/SFMono.woff2") format("woff2");
+  font-weight: 400 700;
+  font-display: swap;
+}
+*/

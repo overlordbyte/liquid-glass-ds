@@ -1,0 +1,73 @@
+/* ==========================================================================
+   BASE — minimal reset and element defaults. No component styling here.
+   ========================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  font-optical-sizing: var(--font-optical-sizing);
+}
+
+body {
+  margin: 0;
+  background: var(--surface-page);
+  color: var(--text-primary);
+  font-family: var(--text-body-family);
+  font-size: var(--text-body-size);
+  font-weight: var(--text-body-weight);
+  line-height: var(--text-body-leading);
+  letter-spacing: var(--text-body-tracking);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Dense desktop surfaces opt down to 13px body */
+[data-density="dense"] { font-size: var(--text-body-dense-size); }
+
+h1, h2, h3, h4, h5, h6 { margin: 0; font-family: var(--font-display); }
+p { margin: 0; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+
+a {
+  color: var(--text-link);
+  text-decoration: none;
+  transition: var(--t-hover);
+}
+a:hover { opacity: 0.72; }
+
+button, input, select, textarea {
+  font: inherit;
+  /* Form controls carry an intrinsic size that stops grid/flex items from
+     shrinking. Zero it once, here, rather than in every component. */
+  min-width: 0;
+  letter-spacing: inherit;
+  color: inherit;
+  margin: 0;
+}
+button { background: none; border: 0; padding: 0; cursor: pointer; }
+
+img, svg, video, canvas { display: block; max-width: 100%; }
+
+code, pre, kbd, samp { font-family: var(--text-mono-family); font-size: var(--text-mono-size); }
+
+hr { border: 0; border-top: var(--border-hairline); margin: var(--space-4) 0; }
+
+/* Focus: halo, not outline. Keyboard only. */
+:focus { outline: none; }
+:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-halo);
+  border-radius: inherit;
+}
+
+::selection { background: color-mix(in srgb, var(--tint) 24%, transparent); }
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb {
+  background: var(--fill-2);
+  border-radius: var(--radius-full);
+  border: 3px solid transparent;
+  background-clip: padding-box;
+}
+::-webkit-scrollbar-track { background: transparent; }

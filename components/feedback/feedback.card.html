@@ -1,0 +1,67 @@
+<!-- @dsCard group="Components" viewport="700x395" name="Feedback" subtitle="Sheet, dialog, toast, alert, progress" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7/babel.min.js"></script>
+<link rel="stylesheet" href="../../styles.css" />
+<script src="../../_ds_bundle.js"></script>
+<script src="../../preview/bundle.js"></script>
+<style>
+  html, body { margin: 0; background: transparent; }
+  #root { padding: 16px 20px; }
+  .stage { border-radius: var(--radius-panel); }
+  .cap { font-size: var(--size-11); font-weight: 500; letter-spacing: .06em;
+          text-transform: uppercase; color: var(--text-tertiary); }
+  
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel" data-presets="react">
+const { Button, Alert, Toast, Spinner, ProgressBar, Sheet, Dialog, ListGroup, ListRow, Icon, Switch } = window.LiquidGlass;
+
+function Demo() {
+  const [sheet, setSheet] = React.useState(false);
+  const [dialog, setDialog] = React.useState(false);
+  const [toast, setToast] = React.useState(true);
+  return (
+    <div style={{ display: "grid", gridTemplateColumns: "1fr 300px", gap: 20 }}>
+      <div style={{ display: "grid", gap: 12, alignContent: "start" }}>
+        <Alert tone="info" title="Syncing in the background">Close the app any time.</Alert>
+        <Alert tone="warning" title="Storage almost full"
+          action={<Button variant="plain" size="sm">Manage</Button>}>1.2 GB left.</Alert>
+        <Alert tone="danger" title="Upload failed">Check your connection and retry.</Alert>
+        <ProgressBar value={62} label="Uploading" />
+        <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+          <Spinner size={20} />
+          <Button variant="bordered" size="sm" onClick={() => setSheet(true)}>Open sheet</Button>
+          <Button variant="bordered" size="sm" onClick={() => setDialog(true)}>Open dialog</Button>
+        </div>
+      </div>
+      <div className="lg-wallpaper stage" style={{ position: "relative", height: 356, overflow: "hidden" }}>
+        <Toast open={toast} message="Changes saved" tone="success"
+          icon={<Icon name="check" size={15} color="var(--status-success)" />} />
+        <Sheet open={sheet} onClose={() => setSheet(false)} detent="half" title="Share">
+          <ListGroup inset={52}>
+            <ListRow leading={<Icon name="link" />} title="Copy link" />
+            <ListRow leading={<Icon name="mail" />} title="Email" />
+            <ListRow leading={<Icon name="users" />} title="Collaborators" value="3" chevron />
+          </ListGroup>
+        </Sheet>
+        <Dialog open={dialog} onClose={() => setDialog(false)} title="Delete project?"
+          message="This cannot be undone."
+          actions={[{ label: "Cancel", onPress: () => setDialog(false) },
+                    { label: "Delete", emphasis: "destructive", onPress: () => setDialog(false) }]} />
+      </div>
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<Demo />);
+</script>
+</body>
+</html>

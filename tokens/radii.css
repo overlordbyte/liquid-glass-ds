@@ -1,0 +1,24 @@
+/* ==========================================================================
+   CORNER RADII — continuous-corner feel; radius grows with the surface,
+   never with the nesting depth.
+   ========================================================================== */
+
+:root {
+  --radius-xs: 6px;    /* tags, tiny chips */
+  --radius-sm: 10px;   /* inputs */
+  --radius-md: 12px;   /* buttons */
+  --radius-lg: 14px;   /* cards */
+  --radius-xl: 16px;   /* sheets, modals (top corners) */
+  --radius-2xl: 22px;  /* floating glass panels, widgets */
+  --radius-3xl: 28px;  /* phone-sized containers, hero glass */
+  --radius-full: 999px;/* capsules, pills, avatars, FABs */
+
+  /* Semantic */
+  --radius-button: var(--radius-md);
+  --radius-button-capsule: var(--radius-full);
+  --radius-input: var(--radius-sm);
+  --radius-card: var(--radius-lg);
+  --radius-sheet: var(--radius-xl);
+  --radius-panel: var(--radius-2xl);
+  --radius-avatar: var(--radius-full);
+}

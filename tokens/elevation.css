@@ -1,0 +1,36 @@
+/* ==========================================================================
+   ELEVATION — depth comes from material layering, not drop shadows.
+
+   HARD RULE: never drop-shadow a material (glass) surface. The shadow kills
+   the illusion that light passes through it. Shadows exist only for opaque
+   objects that genuinely sit above the page: a dragged card, a desktop
+   window, a photo tile.
+   ========================================================================== */
+
+:root {
+  --shadow-none: none;
+
+  /* Opaque-only shadows */
+  --shadow-hairline: 0 1px 0 rgba(0, 0, 0, 0.04);          /* macOS divider */
+  --shadow-raised: 0 1px 2px rgba(0, 0, 0, 0.06),
+                   0 4px 12px rgba(0, 0, 0, 0.06);
+  --shadow-floating: 0 8px 24px rgba(0, 0, 0, 0.10),
+                     0 2px 6px rgba(0, 0, 0, 0.06);
+  --shadow-dragged: 0 20px 48px rgba(0, 0, 0, 0.18),
+                    0 4px 12px rgba(0, 0, 0, 0.10);
+
+  /* Ambient occlusion UNDER a glass panel — not on it. Put this on the
+     wrapper behind the panel when the panel floats over a busy backdrop. */
+  --shadow-ambient-glass: 0 12px 40px rgba(0, 0, 0, 0.14);
+
+  /* Focus halo: 4px of the current tint at 18% alpha. Never a hard outline. */
+  --focus-halo: 0 0 0 4px color-mix(in srgb, var(--tint) 18%, transparent);
+
+  /* Z layers */
+  --z-content: 0;
+  --z-sticky: 10;
+  --z-chrome: 100;
+  --z-sheet: 200;
+  --z-popover: 300;
+  --z-toast: 400;
+}

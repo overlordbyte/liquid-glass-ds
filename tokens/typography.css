@@ -1,0 +1,94 @@
+/* ==========================================================================
+   TYPOGRAPHY — the 10-step px scale, named the way the platform names it.
+   Scale: 11 12 13 15 17 22 28 34 44 56
+   Rule: 19px and below uses --font-text, 20px and up uses --font-display.
+   ========================================================================== */
+
+:root {
+  /* ---- Raw sizes ---- */
+  --size-11: 11px;
+  --size-12: 12px;
+  --size-13: 13px;
+  --size-15: 15px;
+  --size-17: 17px;
+  --size-22: 22px;
+  --size-28: 28px;
+  --size-34: 34px;
+  --size-44: 44px;
+  --size-56: 56px;
+
+  /* ---- Weights ---- */
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* ---- Line heights ---- */
+  --leading-tight: 1.08;   /* display sizes 34+ */
+  --leading-snug: 1.2;     /* titles 22–28 */
+  --leading-normal: 1.35;  /* UI labels */
+  --leading-relaxed: 1.47; /* body copy */
+
+  /* ---- Tracking: tightens as size grows, the opposite of a web default --- */
+  --tracking-display: -0.022em;
+  --tracking-title: -0.015em;
+  --tracking-body: -0.006em;
+  --tracking-caption: 0em;
+  --tracking-caps: 0.06em;
+
+  /* ---- Semantic roles (font / size / weight / leading / tracking) ---- */
+  --text-hero-family: var(--font-display);
+  --text-hero-size: var(--size-56);
+  --text-hero-weight: var(--weight-semibold);
+  --text-hero-leading: var(--leading-tight);
+  --text-hero-tracking: var(--tracking-display);
+
+  --text-largetitle-family: var(--font-display);
+  --text-largetitle-size: var(--size-34);
+  --text-largetitle-weight: var(--weight-bold);
+  --text-largetitle-leading: var(--leading-tight);
+  --text-largetitle-tracking: var(--tracking-display);
+
+  --text-title1-family: var(--font-display);
+  --text-title1-size: var(--size-28);
+  --text-title1-weight: var(--weight-semibold);
+  --text-title1-leading: var(--leading-snug);
+  --text-title1-tracking: var(--tracking-title);
+
+  --text-title2-family: var(--font-display);
+  --text-title2-size: var(--size-22);
+  --text-title2-weight: var(--weight-semibold);
+  --text-title2-leading: var(--leading-snug);
+  --text-title2-tracking: var(--tracking-title);
+
+  --text-body-family: var(--font-text);
+  --text-body-size: var(--size-17);      /* touch default */
+  --text-body-weight: var(--weight-regular);
+  --text-body-leading: var(--leading-relaxed);
+  --text-body-tracking: var(--tracking-body);
+
+  --text-body-dense-size: var(--size-13); /* dense desktop default */
+
+  --text-callout-family: var(--font-text);
+  --text-callout-size: var(--size-15);
+  --text-callout-weight: var(--weight-regular);
+
+  --text-label-family: var(--font-text);
+  --text-label-size: var(--size-15);
+  --text-label-weight: var(--weight-semibold);
+
+  --text-footnote-family: var(--font-text);
+  --text-footnote-size: var(--size-13);
+  --text-footnote-weight: var(--weight-regular);
+
+  --text-caption-family: var(--font-text);
+  --text-caption-size: var(--size-12);
+  --text-caption-weight: var(--weight-regular);
+
+  --text-micro-family: var(--font-text);
+  --text-micro-size: var(--size-11);
+  --text-micro-weight: var(--weight-medium);
+
+  --text-mono-family: var(--font-mono);
+  --text-mono-size: var(--size-13);
+}

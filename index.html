@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Liquid Glass — Design System</title>
+<link rel="stylesheet" href="styles.css" />
+<style>
+  body { background: var(--surface-page); }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 56px var(--inset-page) 96px; }
+  .masthead { padding-bottom: 36px; border-bottom: var(--border-hairline); margin-bottom: 44px; }
+  h1 { font-size: var(--size-44); font-weight: 700; letter-spacing: var(--tracking-display); line-height: 1.06; }
+  .lede { font-size: var(--size-17); color: var(--text-secondary); max-width: 62ch; margin-top: 12px; line-height: var(--leading-relaxed); }
+  .links { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
+  .links a { font-size: var(--size-13); font-weight: 500; padding: 7px 14px; border-radius: var(--radius-full); background: var(--fill-4); color: var(--text-primary); }
+  .links a:hover { background: var(--fill-3); opacity: 1; }
+  h2 { font-size: var(--size-28); font-weight: 600; letter-spacing: var(--tracking-title); margin: 48px 0 18px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 20px; }
+  .card-name { font-size: var(--size-15); font-weight: 600; }
+  .card-sub { font-size: var(--size-12); color: var(--text-tertiary); margin-top: 2px; margin-bottom: 8px; line-height: 1.35; }
+  .frame { border-radius: var(--radius-card); overflow: hidden; background: var(--surface-grouped);
+           box-shadow: var(--specular-rim); position: relative; }
+  .frame iframe { border: 0; display: block; transform-origin: top left; }
+  .wide { grid-column: 1 / -1; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="masthead">
+    <h1>Liquid&nbsp;Glass</h1>
+    <p class="lede">A translucent, Apple-adjacent design system: frosted materials, layered depth, seven system tints and short spring-weighted motion. Tokens, 30 React components and three UI kits.</p>
+    <nav class="links">
+      <a href="readme.md">Design guide</a>
+      <a href="styles.css">styles.css</a>
+      <a href="SKILL.md">SKILL.md</a>
+      <a href="ui_kits/ios-app/index.html">iOS kit</a>
+      <a href="ui_kits/macos-app/index.html">macOS kit</a>
+      <a href="ui_kits/web-marketing/index.html">Marketing kit</a>
+    </nav>
+  </header>
+  <main id="out"></main>
+</div>
+<script>
+fetch("tools/cards.json").then(r => r.json()).then(cards => {
+  const out = document.getElementById("out");
+  let group = null, grid = null;
+  for (const c of cards) {
+    if (c.group !== group) {
+      group = c.group;
+      const h = document.createElement("h2"); h.textContent = group; out.appendChild(h);
+      grid = document.createElement("div"); grid.className = "grid"; out.appendChild(grid);
+    }
+    const cell = document.createElement("div");
+    if (c.w > 760) cell.className = "wide";
+    cell.innerHTML =
+      '<div class="card-name"></div><div class="card-sub"></div>' +
+      '<div class="frame"><iframe loading="lazy" scrolling="no"></iframe></div>';
+    cell.querySelector(".card-name").textContent = c.name;
+    cell.querySelector(".card-sub").textContent = c.subtitle;
+    grid.appendChild(cell);
+    const frame = cell.querySelector(".frame");
+    const iframe = cell.querySelector("iframe");
+    iframe.src = c.path;
+    iframe.width = c.w; iframe.height = c.h;
+    const fit = () => {
+      const s = Math.min(1, frame.clientWidth / c.w);
+      iframe.style.transform = "scale(" + s + ")";
+      frame.style.height = (c.h * s) + "px";
+    };
+    new ResizeObserver(fit).observe(frame);
+    fit();
+  }
+});
+</script>
+</body>
+</html>

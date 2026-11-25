@@ -1,0 +1,29 @@
+<!-- @dsCard group="Glass" viewport="700x183" name="Material Densities Dark" subtitle="In dark mode the body goes black and the rim carries the glass read" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  html,body{margin:0;background:transparent}
+  body{padding:14px 18px;font-family:var(--font-text)}
+  .g{display:flex;gap:12px;flex-wrap:wrap;align-items:flex-start}
+  .tk{font-family:var(--font-mono);font-size:10px;color:var(--text-tertiary)}
+  .lab{font-size:11px;font-weight:600;margin-top:7px;color:var(--text-primary)}
+  .stage{border-radius:18px;overflow:hidden;position:relative}
+  .pane{position:relative;isolation:isolate;box-shadow:var(--specular);border-radius:18px;
+        display:grid;place-items:center;height:92px;font-size:13px;font-weight:600;color:var(--text-primary)}
+  .pane::before{content:"";position:absolute;inset:0;border-radius:inherit;background:var(--lens-gradient);z-index:-1}
+</style>
+</head>
+<body>
+<div class="lg-wallpaper--cool stage" style="padding:16px" data-theme="dark">
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px">
+    <div><div class="pane" style="background:rgba(28,28,30,.28);backdrop-filter:blur(8px) saturate(180%);-webkit-backdrop-filter:blur(8px) saturate(180%);box-shadow:inset 0 1.5px 0 rgba(255,255,255,.30),inset 0 0 0 .5px rgba(255,255,255,.14);color:#fff">Ultrathin</div><div class="lab" style="color:#fff">0.28</div></div>
+    <div><div class="pane" style="background:rgba(28,28,30,.55);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);box-shadow:inset 0 1.5px 0 rgba(255,255,255,.30),inset 0 0 0 .5px rgba(255,255,255,.14);color:#fff">Thin</div><div class="lab" style="color:#fff">0.55</div></div>
+    <div><div class="pane" style="background:rgba(28,28,30,.72);backdrop-filter:blur(30px) saturate(180%);-webkit-backdrop-filter:blur(30px) saturate(180%);box-shadow:inset 0 1.5px 0 rgba(255,255,255,.30),inset 0 0 0 .5px rgba(255,255,255,.14);color:#fff">Regular</div><div class="lab" style="color:#fff">0.72</div></div>
+    <div><div class="pane" style="background:rgba(28,28,30,.88);backdrop-filter:blur(40px) saturate(180%);-webkit-backdrop-filter:blur(40px) saturate(180%);box-shadow:inset 0 1.5px 0 rgba(255,255,255,.30),inset 0 0 0 .5px rgba(255,255,255,.14);color:#fff">Thick</div><div class="lab" style="color:#fff">0.88</div></div>
+  </div>
+</div>
+</body>
+</html>

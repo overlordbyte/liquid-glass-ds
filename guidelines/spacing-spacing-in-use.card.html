@@ -1,0 +1,36 @@
+<!-- @dsCard group="Spacing" viewport="700x180" name="Spacing In Use" subtitle="A grouped row: 16px gutter, 12px stack gap, 44px row height" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  html,body{margin:0;background:transparent}
+  body{padding:14px 18px;font-family:var(--font-text)}
+  .g{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-start}
+  .sw{width:84px}
+  .sw i{display:block;height:46px;border-radius:10px;box-shadow:var(--specular-rim)}
+  .sw b{display:block;font-size:11px;font-weight:600;margin-top:6px;color:var(--text-primary)}
+  .sw s{display:block;font-size:10px;text-decoration:none;color:var(--text-tertiary);font-variant-numeric:tabular-nums}
+  .tk{font-family:var(--font-mono);font-size:10px;color:var(--text-tertiary)}
+  .row{display:flex;align-items:baseline;gap:14px;padding:3px 0}
+  .row .m{font-family:var(--font-mono);font-size:10px;color:var(--text-tertiary);min-width:112px;flex:0 0 auto}
+</style>
+</head>
+<body>
+<div style="background:var(--bg-grouped);padding:16px;border-radius:14px">
+  <div style="background:#fff;border-radius:14px;overflow:hidden">
+    <div style="display:flex;align-items:center;gap:12px;height:44px;padding:0 16px">
+      <span style="width:28px;height:28px;border-radius:7px;background:var(--tint)"></span>
+      <span style="flex:1;font-size:17px">General</span><span style="font-size:17px;color:var(--text-tertiary)">On</span>
+    </div>
+    <div style="height:1px;background:var(--separator);margin-left:56px"></div>
+    <div style="display:flex;align-items:center;gap:12px;height:44px;padding:0 16px">
+      <span style="width:28px;height:28px;border-radius:7px;background:var(--tint-green)"></span>
+      <span style="flex:1;font-size:17px">Privacy</span>
+    </div>
+  </div>
+  <div class="tk" style="margin-top:8px">gutter 16 · gap 12 · row 44 · separator inset 56</div>
+</div>
+</body>
+</html>

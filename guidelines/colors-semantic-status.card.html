@@ -1,0 +1,28 @@
+<!-- @dsCard group="Colors" viewport="700x134" name="Semantic Status" subtitle="Status colours alias the tints; never introduce a new hue" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  html,body{margin:0;background:transparent}
+  body{padding:14px 18px;font-family:var(--font-text)}
+  .g{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-start}
+  .sw{width:84px}
+  .sw i{display:block;height:46px;border-radius:10px;box-shadow:var(--specular-rim)}
+  .sw b{display:block;font-size:11px;font-weight:600;margin-top:6px;color:var(--text-primary)}
+  .sw s{display:block;font-size:10px;text-decoration:none;color:var(--text-tertiary);font-variant-numeric:tabular-nums}
+  .tk{font-family:var(--font-mono);font-size:10px;color:var(--text-tertiary)}
+  .row{display:flex;align-items:baseline;gap:14px;padding:3px 0}
+  .row .m{font-family:var(--font-mono);font-size:10px;color:var(--text-tertiary);min-width:112px;flex:0 0 auto}
+</style>
+</head>
+<body>
+<div class="g">
+  <div class="sw"><i style="background:#34c759"></i><b>Success</b><s>--status-success</s></div>
+  <div class="sw"><i style="background:#ff9500"></i><b>Warning</b><s>--status-warning</s></div>
+  <div class="sw"><i style="background:#ff3b30"></i><b>Danger</b><s>--status-danger</s></div>
+  <div class="sw"><i style="background:#007aff"></i><b>Info</b><s>--status-info</s></div>
+</div>
+</body>
+</html>

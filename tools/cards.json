@@ -1,0 +1,282 @@
+[
+ {
+  "path": "guidelines/colors-fills.card.html",
+  "group": "Colors",
+  "name": "Fills",
+  "subtitle": "Translucent neutral washes for tracks, chips and inactive controls",
+  "w": 700,
+  "h": 119
+ },
+ {
+  "path": "guidelines/colors-ink.card.html",
+  "group": "Colors",
+  "name": "Ink",
+  "subtitle": "Four levels of text, all alpha over the surface",
+  "w": 700,
+  "h": 166
+ },
+ {
+  "path": "guidelines/colors-semantic-status.card.html",
+  "group": "Colors",
+  "name": "Semantic Status",
+  "subtitle": "Status colours alias the tints; never introduce a new hue",
+  "w": 700,
+  "h": 134
+ },
+ {
+  "path": "guidelines/colors-surfaces-dark.card.html",
+  "group": "Colors",
+  "name": "Surfaces Dark",
+  "subtitle": "Page, elevated and grouped fills in dark mode",
+  "w": 700,
+  "h": 134
+ },
+ {
+  "path": "guidelines/colors-surfaces-light.card.html",
+  "group": "Colors",
+  "name": "Surfaces Light",
+  "subtitle": "Page, elevated and grouped fills in light mode",
+  "w": 700,
+  "h": 134
+ },
+ {
+  "path": "guidelines/colors-system-tints.card.html",
+  "group": "Colors",
+  "name": "System Tints",
+  "subtitle": "Accent only \u2014 one tint per surface, reserved for the primary action",
+  "w": 700,
+  "h": 119
+ },
+ {
+  "path": "guidelines/colors-tints-dark.card.html",
+  "group": "Colors",
+  "name": "Tints Dark",
+  "subtitle": "Brightened one step so the accent survives on black",
+  "w": 700,
+  "h": 139
+ },
+ {
+  "path": "guidelines/type-body-scale.card.html",
+  "group": "Type",
+  "name": "Body Scale",
+  "subtitle": "19px and below uses the Text optical size",
+  "w": 700,
+  "h": 210
+ },
+ {
+  "path": "guidelines/type-display-scale.card.html",
+  "group": "Type",
+  "name": "Display Scale",
+  "subtitle": "20px and up uses the Display optical size",
+  "w": 700,
+  "h": 256
+ },
+ {
+  "path": "guidelines/type-mono.card.html",
+  "group": "Type",
+  "name": "Mono",
+  "subtitle": "SF Mono, falling back to Menlo \u2014 code, numbers, identifiers",
+  "w": 700,
+  "h": 96
+ },
+ {
+  "path": "guidelines/type-tracking.card.html",
+  "group": "Type",
+  "name": "Tracking",
+  "subtitle": "Letter-spacing tightens as size grows \u2014 the opposite of a web default",
+  "w": 700,
+  "h": 150
+ },
+ {
+  "path": "guidelines/type-weights.card.html",
+  "group": "Type",
+  "name": "Weights",
+  "subtitle": "Four weights only: 400 / 500 / 600 / 700",
+  "w": 700,
+  "h": 68
+ },
+ {
+  "path": "guidelines/spacing-hit-targets.card.html",
+  "group": "Spacing",
+  "name": "Hit Targets",
+  "subtitle": "44pt on touch, 28pt on dense desktop",
+  "w": 700,
+  "h": 80
+ },
+ {
+  "path": "guidelines/spacing-radii.card.html",
+  "group": "Spacing",
+  "name": "Radii",
+  "subtitle": "Radius grows with the surface, never with nesting depth",
+  "w": 700,
+  "h": 224
+ },
+ {
+  "path": "guidelines/spacing-spacing-in-use.card.html",
+  "group": "Spacing",
+  "name": "Spacing In Use",
+  "subtitle": "A grouped row: 16px gutter, 12px stack gap, 44px row height",
+  "w": 700,
+  "h": 180
+ },
+ {
+  "path": "guidelines/spacing-spacing-scale.card.html",
+  "group": "Spacing",
+  "name": "Spacing Scale",
+  "subtitle": "8pt base with 4 as the half step",
+  "w": 700,
+  "h": 137
+ },
+ {
+  "path": "guidelines/glass-blur-levels.card.html",
+  "group": "Glass",
+  "name": "Blur Levels",
+  "subtitle": "Blur scales with the surface's importance, not its size",
+  "w": 700,
+  "h": 169
+ },
+ {
+  "path": "guidelines/glass-material-densities.card.html",
+  "group": "Glass",
+  "name": "Material Densities",
+  "subtitle": "Thin .60 \u00b7 regular .78 \u00b7 thick .92 white alpha over the blurred backdrop",
+  "w": 700,
+  "h": 183
+ },
+ {
+  "path": "guidelines/glass-material-densities-dark.card.html",
+  "group": "Glass",
+  "name": "Material Densities Dark",
+  "subtitle": "In dark mode the body goes black and the rim carries the glass read",
+  "w": 700,
+  "h": 183
+ },
+ {
+  "path": "guidelines/glass-protection.card.html",
+  "group": "Glass",
+  "name": "Protection",
+  "subtitle": "Gradient for static text, capsule for anything interactive",
+  "w": 700,
+  "h": 186
+ },
+ {
+  "path": "guidelines/glass-shadow-rule.card.html",
+  "group": "Glass",
+  "name": "Shadow Rule",
+  "subtitle": "Never drop-shadow a material. Ambient occlusion goes on the wrapper",
+  "w": 700,
+  "h": 210
+ },
+ {
+  "path": "guidelines/glass-specular-anatomy.card.html",
+  "group": "Glass",
+  "name": "Specular Anatomy",
+  "subtitle": "The four layers, added one at a time \u2014 the top highlight is what makes it glass",
+  "w": 700,
+  "h": 208
+ },
+ {
+  "path": "guidelines/motion-durations-easing.card.html",
+  "group": "Motion",
+  "name": "Durations & Easing",
+  "subtitle": "Short, spring-weighted, one axis at a time",
+  "w": 700,
+  "h": 208
+ },
+ {
+  "path": "guidelines/motion-focus-halo.card.html",
+  "group": "Motion",
+  "name": "Focus Halo",
+  "subtitle": "A 4px tint halo at 18% alpha \u2014 never a hard outline",
+  "w": 700,
+  "h": 103
+ },
+ {
+  "path": "guidelines/motion-press-hover.card.html",
+  "group": "Motion",
+  "name": "Press & Hover",
+  "subtitle": "Controls shrink; they never just darken",
+  "w": 700,
+  "h": 128
+ },
+ {
+  "path": "guidelines/brand-iconography.card.html",
+  "group": "Brand",
+  "name": "Iconography",
+  "subtitle": "Lucide on a 24px grid at 1.75 stroke \u2014 the open stand-in for SF Symbols",
+  "w": 700,
+  "h": 199
+ },
+ {
+  "path": "guidelines/brand-one-tint-per-surface.card.html",
+  "group": "Brand",
+  "name": "One Tint Per Surface",
+  "subtitle": "Rebind --tint on a container; never mix two accents in one view",
+  "w": 700,
+  "h": 187
+ },
+ {
+  "path": "guidelines/brand-wallpapers.card.html",
+  "group": "Brand",
+  "name": "Wallpapers",
+  "subtitle": "Pure-CSS gradient meshes \u2014 glass needs something behind it",
+  "w": 700,
+  "h": 169
+ },
+ {
+  "path": "components/core/core.card.html",
+  "group": "Components",
+  "name": "Core",
+  "subtitle": "Buttons, icon buttons, badges, chips, avatars",
+  "w": 700,
+  "h": 370
+ },
+ {
+  "path": "components/feedback/feedback.card.html",
+  "group": "Components",
+  "name": "Feedback",
+  "subtitle": "Sheet, dialog, toast, alert, progress",
+  "w": 700,
+  "h": 395
+ },
+ {
+  "path": "components/forms/forms.card.html",
+  "group": "Components",
+  "name": "Forms",
+  "subtitle": "Fields, toggles, segmented control, slider",
+  "w": 700,
+  "h": 330
+ },
+ {
+  "path": "components/navigation/navigation.card.html",
+  "group": "Components",
+  "name": "Navigation",
+  "subtitle": "Nav bar, tab bar, sidebar, grouped list, toolbar",
+  "w": 700,
+  "h": 400
+ },
+ {
+  "path": "ui_kits/ios-app/index.html",
+  "group": "iOS App",
+  "name": "iOS App Kit",
+  "subtitle": "Sign-in, library, now playing and settings \u2014 click through all four",
+  "w": 1060,
+  "h": 620
+ },
+ {
+  "path": "ui_kits/macos-app/index.html",
+  "group": "macOS App",
+  "name": "macOS App Kit",
+  "subtitle": "Window chrome, 240px sidebar, grid/list browser and a glass inspector",
+  "w": 1120,
+  "h": 680
+ },
+ {
+  "path": "ui_kits/web-marketing/index.html",
+  "group": "Marketing Site",
+  "name": "Marketing Site Kit",
+  "subtitle": "Floating glass nav, hero, feature grid, pricing and footer",
+  "w": 1280,
+  "h": 760
+ }
+]

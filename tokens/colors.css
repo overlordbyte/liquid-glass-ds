@@ -1,0 +1,54 @@
+/* ==========================================================================
+   COLORS — base palette
+   Light is the default scope; dark overrides live in theme-dark.css.
+   Values follow design-md/glass/apple.md from the attached repo.
+   ========================================================================== */
+
+:root {
+  /* ---- Neutral surfaces (light) ---- */
+  --bg-base: #ffffff;          /* the page itself */
+  --bg-elevated: #ffffff;      /* cards, sheets sitting on the page */
+  --bg-grouped: #f2f2f7;       /* grouped-list / inset field backdrop */
+  --bg-grouped-2: #ffffff;     /* rows inside a grouped surface */
+
+  /* ---- Ink (light) ---- */
+  --fg-1: #1d1d1f;                      /* primary text */
+  --fg-2: rgba(60, 60, 67, 0.78);       /* secondary text */
+  --fg-3: rgba(60, 60, 67, 0.55);       /* tertiary text, placeholders */
+  --fg-4: rgba(60, 60, 67, 0.32);       /* quaternary, disabled glyphs */
+
+  /* ---- Hairlines (light) ---- */
+  --separator: rgba(60, 60, 67, 0.18);
+  --separator-opaque: #c6c6c8;
+
+  /* ---- System tints — accent only, never decoration ---- */
+  --tint-blue: #007aff;
+  --tint-green: #34c759;
+  --tint-red: #ff3b30;
+  --tint-orange: #ff9500;
+  --tint-purple: #af52de;
+  --tint-pink: #ff2d55;
+  --tint-yellow: #ffcc00;
+  --tint-teal: #30b0c7;
+  --tint-indigo: #5856d6;
+
+  /* The one tint active on the current surface. Rebind per surface, never
+     mix two tints in one view. */
+  --tint: var(--tint-blue);
+  --tint-contrast: #ffffff;
+
+  /* ---- Fills: translucent neutral washes for chips, tracks, inactive bits */
+  --fill-1: rgba(120, 120, 128, 0.20);
+  --fill-2: rgba(120, 120, 128, 0.16);
+  --fill-3: rgba(120, 120, 128, 0.12);
+  --fill-4: rgba(120, 120, 128, 0.08);
+
+  /* ---- Glass primitives (white alpha over a blurred backdrop) ---- */
+  --glass-thin-alpha: 0.60;
+  --glass-regular-alpha: 0.78;
+  --glass-thick-alpha: 0.92;
+  --glass-rgb: 255, 255, 255;      /* the glass body colour, flipped in dark */
+  --glass-highlight: rgba(255, 255, 255, 0.85);  /* top specular edge */
+  --glass-rim: rgba(255, 255, 255, 0.45);        /* full-perimeter rim */
+  --glass-shade: rgba(0, 0, 0, 0.06);            /* bottom inner shade */
+}

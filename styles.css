@@ -1,0 +1,17 @@
+/* Liquid Glass Design System — global CSS entry point.
+   Consumers link this one file. Imports only, in dependency order. */
+
+@import "./tokens/fonts.css";
+@import "./tokens/colors.css";
+@import "./tokens/theme-dark.css";
+@import "./tokens/theme-auto.css";
+@import "./tokens/typography.css";
+@import "./tokens/spacing.css";
+@import "./tokens/radii.css";
+@import "./tokens/materials.css";
+@import "./tokens/elevation.css";
+@import "./tokens/motion.css";
+@import "./tokens/animations.css";
+@import "./tokens/semantic.css";
+@import "./tokens/base.css";
+@import "./tokens/utilities.css";

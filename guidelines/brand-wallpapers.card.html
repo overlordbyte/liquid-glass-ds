@@ -1,0 +1,27 @@
+<!-- @dsCard group="Brand" viewport="700x169" name="Wallpapers" subtitle="Pure-CSS gradient meshes — glass needs something behind it" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  html,body{margin:0;background:transparent}
+  body{padding:14px 18px;font-family:var(--font-text)}
+  .g{display:flex;gap:12px;flex-wrap:wrap;align-items:flex-start}
+  .tk{font-family:var(--font-mono);font-size:10px;color:var(--text-tertiary)}
+  .lab{font-size:11px;font-weight:600;margin-top:7px;color:var(--text-primary)}
+  .stage{border-radius:18px;overflow:hidden;position:relative}
+  .pane{position:relative;isolation:isolate;box-shadow:var(--specular);border-radius:18px;
+        display:grid;place-items:center;height:92px;font-size:13px;font-weight:600;color:var(--text-primary)}
+  .pane::before{content:"";position:absolute;inset:0;border-radius:inherit;background:var(--lens-gradient);z-index:-1}
+</style>
+</head>
+<body>
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px">
+  <div><div class="lg-wallpaper stage" style="height:110px"></div><div class="lab">.lg-wallpaper</div></div>
+  <div><div class="lg-wallpaper--warm stage" style="height:110px"></div><div class="lab">--warm</div></div>
+  <div><div class="lg-wallpaper--cool stage" style="height:110px"></div><div class="lab">--cool</div></div>
+  <div><div class="lg-wallpaper--light stage" style="height:110px"></div><div class="lab">--light</div></div>
+</div>
+</body>
+</html>
